@@ -32,6 +32,15 @@ class ViewController: UIViewController, WKNavigationDelegate {
         // Adding button to navigation bar
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .Plain, target: self, action: "openTapped")
     }
+    
+    func openTapped() {
+        
+        let ac = UIAlertController(title: "Open page...", message: nil, preferredStyle: .ActionSheet)
+        ac.addAction(UIAlertAction(title: "Apple.com", style: .Default, handler: openPage))
+        ac.addAction(UIAlertAction(title: "hackingwithswift.com", style: .Default, handler: openPage))
+        ac.addAction(UIAlertAction(title: "cancel", style: .Cancel, handler: nil))
+        presentViewController(ac, animated: true, completion: nil)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
