@@ -25,7 +25,12 @@ class ViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+//        let url = NSURL(string: "https://www.hackingwithswift.com")!
+//        webView.loadRequest(NSURLRequest(URL: url))
+//        webView.allowsBackForwardNavigationGestures = true
         
+        // Adding button to navigation bar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .Plain, target: self, action: "openTapped")
     }
 
     override func didReceiveMemoryWarning() {
