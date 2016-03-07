@@ -60,9 +60,13 @@ class ViewController: UIViewController, WKNavigationDelegate {
     func openTapped() {
         
         let ac = UIAlertController(title: "Open page...", message: nil, preferredStyle: .ActionSheet)
-        ac.addAction(UIAlertAction(title: "Apple.com", style: .Default, handler: openPage))
-        ac.addAction(UIAlertAction(title: "hackingwithswift.com", style: .Default, handler: openPage))
+//        ac.addAction(UIAlertAction(title: "Apple.com", style: .Default, handler: openPage))
+//        ac.addAction(UIAlertAction(title: "hackingwithswift.com", style: .Default, handler: openPage))
         ac.addAction(UIAlertAction(title: "cancel", style: .Cancel, handler: nil))
+        
+        for website in websites {
+            ac.addAction(UIAlertAction(title: website, style: .Default, handler: openPage))
+        }
         presentViewController(ac, animated: true, completion: nil)
     }   
     
