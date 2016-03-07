@@ -81,7 +81,22 @@ class ViewController: UIViewController, WKNavigationDelegate {
         webView.loadRequest(NSURLRequest(URL: url))
     }
 
-    
+    func webView(webView: WKWebView, decidePolicyForNavigationAction navigationAction: WKNavigationAction, decisionHandler: (WKNavigationActionPolicy) -> Void) {
+        
+        let url = navigationAction.request.URL
+        
+        if let host = url?.host {
+            for website in websites {
+                if host.rangeOfString(website) != nil {
+                    decisionHandler(.Allow)
+                    return
+                }
+            }
+        }
+        
+        decisionHandler(.Cancel)
+    }
+
 
 }
 
