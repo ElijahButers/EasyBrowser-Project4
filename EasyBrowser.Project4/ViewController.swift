@@ -31,6 +31,12 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         // Adding button to navigation bar
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .Plain, target: self, action: "openTapped")
+        
+        let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        let refresh = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "actionTapped")
+        
+        toolbarItems = [spacer, refresh]
+        navigationController?.toolbarHidden = false
     }
     
     func openTapped() {
@@ -40,7 +46,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         ac.addAction(UIAlertAction(title: "hackingwithswift.com", style: .Default, handler: openPage))
         ac.addAction(UIAlertAction(title: "cancel", style: .Cancel, handler: nil))
         presentViewController(ac, animated: true, completion: nil)
-    }
+    }   
     
     func openPage(action: UIAlertAction!) {
         
