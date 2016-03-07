@@ -42,6 +42,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         toolbarItems = [progressButton, spacer, refresh]
         navigationController?.toolbarHidden = false
+        
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
     }
     
     func openTapped() {
