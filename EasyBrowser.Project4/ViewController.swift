@@ -46,6 +46,13 @@ class ViewController: UIViewController, WKNavigationDelegate {
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
     }
     
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        
+        if keyPath == "estimatedProgress" {
+            progressView.progress = Float(webView.estimatedProgress)
+        }
+    }
+    
     func openTapped() {
         
         let ac = UIAlertController(title: "Open page...", message: nil, preferredStyle: .ActionSheet)
