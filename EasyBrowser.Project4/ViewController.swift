@@ -13,6 +13,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView!
     var progressView: UIProgressView!
+    var websites = ["apple.com", "hackingwithswift.com"]
     
     
     override func loadView() {
@@ -44,6 +45,9 @@ class ViewController: UIViewController, WKNavigationDelegate {
         navigationController?.toolbarHidden = false
         
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
+        
+        let url = NSURL(string: "https://" + websites[0])!
+        webView.loadRequest(NSURLRequest(URL: url))
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
